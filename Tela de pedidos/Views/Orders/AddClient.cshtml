@@ -1,0 +1,41 @@
+﻿@model CarrierModel
+@{
+	ViewData["Title"] = "Cadastar Cliente";
+}
+
+<div class="border-5 container mb-5">
+	<div class="text-center mb-5">
+		<h1>Cadastrar Cliente</h1>
+	</div>
+
+
+	<form class="row g-3" method="post" asp-controller="Orders" asp-action="AddClient">
+		<div class="col-md-6">
+			<label for="Name" class="form-label">Nome</label>
+			<input type="text" class="form-control" asp-for="Name" id="Name">
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+		<div class="col-md-6">
+			<label for="Address" class="form-label">Endereço</label>
+			<input type="text" class="form-control" asp-for="Address" id="Address">
+			<span asp-validation-for="Address" class="text-danger"></span>
+		</div>
+		<div class="col-md-6">
+			<label for="City" class="form-label">Cidade</label>
+			<input type="text" class="form-control" asp-for="City" id="City">
+			<span asp-validation-for="City" class="text-danger"></span>
+		</div>
+		<div class="col-md-6">
+			<label for="State" class="form-label">Estado</label>
+			<input type="text" class="form-control" asp-for="State" id="State">
+			<span asp-validation-for="State" class="text-danger"></span>
+		</div>
+		<div class="col-md-6">
+			<label for="Obs" class="form-label">Observação</label>
+			<input type="text" class="form-control" asp-for="Obs" id="Obs">
+		</div>
+		<div class="col-12">
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		</div>
+	</form>
+</div>

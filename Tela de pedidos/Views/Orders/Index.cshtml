@@ -1,0 +1,64 @@
+﻿@using Tela_de_pedidos.Models.ViewModel;
+@model IEnumerable<OrderViewModel>;
+@Html.Partial("Excluir")
+
+@{
+	bool hasOrders = Model.Any();
+	int totalOrders = Model.Count();
+}
+
+<div class="container pt-5">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="d-flex justify-content-between pb-5">
+				<h1>Tabela de pedidos</h1>
+				<a class="btn btn-primary m-0 d-flex align-items-center" asp-controller="Orders" asp-action="AddOrder">Adicionar Pedido</a>
+			</div>
+			@if (hasOrders)
+			{
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Data</th>
+							<th scope="col">Cliente</th>
+							<th scope="col">Vendedor</th>
+							<th scope="col">Tipo de transporte</th>
+							<th scope="col">Transportadora</th>
+							<th scope="col">Pagamento</th>
+							<th scope="col">Obs</th>
+							<th scope="col"></th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var Order in Model)
+						{
+							<tr>
+								<td>@Order.Date</td>
+								<td>@Order.ClientName</td>
+								<td>@Order.SellerName</td>
+								<td>@Order.TypeTransport</td>
+								<td>@Order.CarrierName</td>
+								<td>@Order.PaymentType</td>
+								<td>@Order.Obs</td>
+								<td>
+									<div class="d-flex">
+										<a class="btn btn-warning" asp-controller="Orders" asp-action="Edit" asp-route-id="@Order.OrderId">Editar</a>
+										<a class="btn btn-danger remover-contato" data-bs-toggle="modal" data-bs-target="#excluirModal" data-id="@Order.OrderId">Remover</a>
+										<a class="btn" href="@Url.Action("AddProductToOrder", "Orders", new { orderId = Order.OrderId })">Add Produtos</a>
+									</div>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+			else
+			{
+				<div class="alert alert-info" role="alert">
+					Não há pedidos disponíveis no momento.
+				</div>
+			}
+		</div>
+	</div>
+</div>

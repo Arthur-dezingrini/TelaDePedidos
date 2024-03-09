@@ -1,0 +1,50 @@
+﻿<div class="container pt-5">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header">
+					<h2>Total de Vendas: @ViewBag.TotalSell</h2>
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">Total de vendas por produto:</h5>
+					<ul>
+						@foreach (var product in @ViewBag.TotalSalesByProduct)
+						{
+							<li>@product.ProductName: @product.TotalSales</li>
+						}
+					</ul>
+					<h5 class="card-title">Total de vendas por Cliente:</h5>
+					<ul>
+						@foreach (var client in @ViewBag.TotalSalesByClient)
+						{
+							<li>@client.ClientName: @client.TotalSales</li>
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header">
+					<h2>Total de Quantidade Vendida: @ViewBag.TotalItemsSold</h2>
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">Total de quantidade vendidas por produto:</h5>
+					<ul>
+						@foreach (var item in @ViewBag.TotalQuantityByProduct)
+						{
+							<li>@item.ProductName: @item.TotalQuantity</li>
+						}
+					</ul>
+					<h5 class="card-title">Total de quantidade vendidas por Cliente:</h5>
+					<ul>
+						@foreach (var item in @ViewBag.TotalQuantityByClient)
+						{
+							<li>@item.ClientName: @item.TotalQuantity</li>
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

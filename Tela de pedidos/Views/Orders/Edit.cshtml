@@ -1,0 +1,88 @@
+﻿@using Tela_de_pedidos.Enums
+@model OrderModel
+
+@{
+	ViewData["Title"] = "Editar Pedido";
+}
+
+<div class="border-5 container mb-5">
+	<div class="text-center mb-5">
+		<h1>Editar Pedido</h1>
+	</div>
+
+
+	<form class="row g-3" method="post" asp-controller="Orders" asp-action="Edit">
+		<input type="hidden" asp-for="Id" />
+
+		<div class="col-md-6">
+			<label for="ClientId" class="form-label">Cliente</label>
+			<select asp-for="Client.Id" class="form-control" id="ClientId">
+				<option value="">Selecione o Cliente</option>
+				@foreach (var client in ViewBag.Clientes)
+				{
+					<option value="@client.Id">@client.Name</option>
+				}
+			</select>
+			<span asp-validation-for="Client.Id" class="text-danger"></span>
+		</div>
+
+		<div class="col-md-6">
+			<label for="SellerId" class="form-label">Vendedor</label>
+			<select asp-for="Seller.Id" class="form-control" id="SellerId">
+				<option value="">Selecione o vendedor</option>
+				@foreach (var seller in ViewBag.Vendedores)
+				{
+					<option value="@seller.Id">@seller.Name</option>
+				}
+			</select>
+			<span asp-validation-for="Seller.Id" class="text-danger"></span>
+		</div>
+
+		<div class="col-md-6">
+			<label for="TypeTransport" class="form-label">Tipo de transporte</label>
+			<select type="text" asp-for="TypeTransport" class="form-select" aria-label="Default select example" id="TypeTransport">
+				<option value="@TypeTransport.FOB">FOB</option>
+				<option value="@TypeTransport.CIF">CIF</option>
+			</select>
+			<span asp-validation-for="TypeTransport" class="text-danger"></span>
+		</div>
+		<div class="col-md-6">
+			<label for="CarrierId" class="form-label">Transportadora</label>
+			<select asp-for="Carrier.Id" class="form-control" id="CarrierId">
+				<option value="">Selecione a transportadora</option>
+				@foreach (var carrier in ViewBag.Transportadoras)
+				{
+					<option value="@carrier.Id">@carrier.Name</option>
+				}
+			</select>
+			<span asp-validation-for="Carrier.Id" class="text-danger"></span>
+		</div>
+
+		<div class="col-md-6">
+			<label for="Frete" class="form-label">Valor do Frete</label>
+			<input type="number" min="0" class="form-control" asp-for="Frete" id="Frete">
+		</div>
+		<div class="col-md-6">
+			<label for="Descont" class="form-label">Valor do Desconto</label>
+			<input type="number" min="0" class="form-control" asp-for="Descont" id="Descont">
+		</div>
+		
+		<div class="col-md-6">
+			<label for="PaymentType" class="form-label">Forma de pagamento</label>
+			<select type="text" asp-for="PaymentType" class="form-select" aria-label="Default select example" id="PaymentType">
+				<option>@PaymentType.Vista</option>
+				<option>@PaymentType.Prazo</option>
+			</select>
+			<span asp-validation-for="PaymentType" class="text-danger"></span>
+		</div>
+		
+		<div class="col-md-4">
+			<label for="Obs" class="form-label">Observação</label>
+			<input type="text" class="form-control" asp-for="Obs" id="Obs">
+		</div>
+		<div class="col-12">
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		</div>
+	</form>
+
+</div>

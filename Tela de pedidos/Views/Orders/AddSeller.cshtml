@@ -1,0 +1,28 @@
+﻿@using Tela_de_pedidos.Enums
+@model SellerModel
+@{
+	ViewData["Title"] = "Cadastar vendedor";
+}
+
+<div class="border-5 container mb-5">
+	<div class="text-center mb-5">
+		<h1>Cadastrar Vendedor</h1>
+	</div>
+
+
+	<form class="row g-3" method="post" asp-controller="Orders" asp-action="AddSeller">
+		<div class="col-md-6">
+			<label for="Name" class="form-label">Nome</label>
+			<input type="text" class="form-control" asp-for="Name" id="Name">
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+		<div class="col-md-6">
+			<label for="Position" class="form-label">Cargo</label>
+			<input type="text" class="form-control" asp-for="Position" id="Position">
+			<span asp-validation-for="Position" class="text-danger"></span>
+		</div>
+		<div class="col-12">
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		</div>
+	</form>
+</div>

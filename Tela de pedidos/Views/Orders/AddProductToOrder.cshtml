@@ -1,0 +1,65 @@
+﻿@model OrderModel
+
+<h1>Adicionar Produtos</h1>
+
+<form class="pb-5" asp-controller="Orders" asp-action="AddProductToOrder" method="post">
+    <div class="row">
+        <input type="hidden" name="orderId" value="@ViewBag.OrderId">
+        <div class="col-md-6">
+            <label for="ProductId">Produto:</label>
+            <select asp-for="Id" class="form-control" id="ProductId" name="ProductId">
+                <option value="">Selecione o Produto</option>
+                @foreach (var product in ViewBag.Produtos)
+                {
+                    <option value="@product.Id">@product.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm-auto">
+            <label for="Quantity">Quantidade:</label>
+            <input type="number" class="form-control" id="Quantity" name="Quantity" value="1" min="1">
+        </div>
+        <button type="submit" class="m-3 btn btn-primary col-md-2">Adicionar Produto</button>
+    </div>
+</form>
+<div class="mt-5">
+    @if (ViewBag.OrderProducts != null && ViewBag.OrderProducts.Count != 0)
+    {
+        <h2>Produtos Adicionados:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor Unitário</th>
+                    <th>Valor Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in ViewBag.OrderProducts)
+                {
+                    <tr>
+                        <td>@product.Product.Name</td>
+                        <td>@product.Quantity</td>
+                        <td>@product.Product.Price</td>
+                        <td>@product.TotalPrice()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div>
+            <h5>Valor total do pedido</h5>
+            <p>@ViewBag.Total</p>
+        </div>
+    }
+
+    
+    else
+    {
+        <div>
+            <h1>Nenhum produto adicionado</h1>
+        </div>
+    }
+
+</div>

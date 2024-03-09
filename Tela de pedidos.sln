@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tela de pedidos", "Tela de pedidos\Tela de pedidos.csproj", "{580350E7-6C50-47A3-90FB-AF52C24709AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{580350E7-6C50-47A3-90FB-AF52C24709AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{580350E7-6C50-47A3-90FB-AF52C24709AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{580350E7-6C50-47A3-90FB-AF52C24709AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{580350E7-6C50-47A3-90FB-AF52C24709AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E0201C9-596F-43F8-B78A-6A03C418CCDF}
+	EndGlobalSection
+EndGlobal
