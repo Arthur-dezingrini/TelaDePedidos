@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-=======
-Jogo de xadrez exbido no Terminal, feito em C#
->>>>>>> 9ec19b38f03a35bda16f736100d2d5fca1373119
-# TelaDePedidos
+Website de pedidos feito em .NET MVC
